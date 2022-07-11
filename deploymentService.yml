@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: project1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: project1
+  template:
+    metadata:
+      labels:
+        app: project1
+    spec:
+        containers:
+        - name: project1
+          image: mbdocker001/project1:latest
+          ports:
+            - containerPort: 8084
+          env:
+            - name: POSTGRES_URL
+              value: jdbc:postgresql:/localhost:5432/postgres
+            - name: POSTGRES_DB
+              value: postgres
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: project1
+spec:
+  selector:
+    app: project1
+  type: NodePort  
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8084
+    nodePort: 30020
+ 

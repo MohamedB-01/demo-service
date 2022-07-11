@@ -1,0 +1,6 @@
+projectKey=MbDemoProject
+serverUrl=http://localhost:9000/sonar
+serverVersion=9.5.0.56709
+dashboardUrl=http://localhost:9000/sonar/dashboard?id=MbDemoProject
+ceTaskId=AYFyl5pfpfq9iRnRzTkK
+ceTaskUrl=http://localhost:9000/sonar/api/ce/task?id=AYFyl5pfpfq9iRnRzTkK
